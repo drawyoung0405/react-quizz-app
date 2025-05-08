@@ -27,7 +27,7 @@ function Dashboard() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Age"
+          label="Category"
           size='small'
         >
           <MenuItem value={10}>Ten</MenuItem>
@@ -42,7 +42,7 @@ function Dashboard() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Age"
+          label="Difficulty"
         >
           <MenuItem value="easy">Easy</MenuItem>
           <MenuItem value="medium">Medium</MenuItem>
