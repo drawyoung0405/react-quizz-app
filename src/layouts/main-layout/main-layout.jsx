@@ -2,14 +2,19 @@ import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import Box from "@mui/material/Box"
-function MainLayout({children}) {
+import { useNavigate } from "react-router-dom"
+function MainLayout({ children }) {
+  const navigate = useNavigate()
+  function handleLogoClick() {
+    navigate("/")
+  }
   return (
     <>
-    <AppBar
+      <AppBar
         position="fixed"
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h6" noWrap component="div" sx={{textAlign:'center'}}>
+          <Typography onClick={handleLogoClick} variant="h6" noWrap component="div" sx={{ textAlign: 'center', ":hover": { cursor: 'pointer' } }}>
             Quiz App
           </Typography>
           <Typography variant="h6" noWrap component="div">
@@ -22,14 +27,14 @@ function MainLayout({children}) {
         sx={{
           flexGrow: 1,
           bgcolor: 'background.default',
-          width:'768px',
+          width: '768px',
           margin: '0 auto',
           maxWidth: '100%',
           marginTop: '64px',
           paddingTop: 3,
         }}>
         <Toolbar />
-{children}
+        {children}
       </Box>
     </>
   )
