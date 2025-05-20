@@ -98,7 +98,7 @@ function Dashboard() {
       <br />
       <br />
       <FormControl fullWidth>
-        <TextField onChange={onChangeAmount} value={amount || 0} id="outlined-basic" label="Amount of Question" variant="outlined"></TextField>
+        <TextField onChange={onChangeAmount} value={amount} id="outlined-basic" label="Amount of Question" variant="outlined"></TextField>
       </FormControl>
       <Box sx={{ textAlign: 'center', marginTop: 3 }}>
         <Button variant='contained' onClick={navigateToQuestion}>Get Start</Button>
