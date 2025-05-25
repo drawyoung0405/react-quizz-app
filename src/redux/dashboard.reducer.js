@@ -1,9 +1,10 @@
-import { SET_CATEGORY, SET_DIFFICULTY, SET_TYPE, SET_AMOUNT } from './dashboard.action'
+import { SET_CATEGORY, SET_DIFFICULTY, SET_TYPE, SET_AMOUNT, SET_USER } from './dashboard.action'
 const initialState = {
     categoryId: null,
     difficulty: null,
     type: null,
-    amount: null
+    amount: null,
+    users: [],
 }
 export const dashboardReducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -29,6 +30,12 @@ export const dashboardReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 amount: payload
+            }
+        }
+        case SET_USER: {
+            return {
+                ...state,
+                users: [...state.users, payload]
             }
         }
         default:
