@@ -75,6 +75,7 @@ function Question() {
       return
     }
     setQuestionIndex(prevState => prevState + 1);
+    setCountTime(DIFFICULTY_TIME[difficulty]);
   }
 
   return (

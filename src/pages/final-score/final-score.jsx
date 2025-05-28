@@ -14,6 +14,7 @@ import { setUser } from '../../redux/dashboard.action';
 function FinalScore() {
   const dispatch = useDispatch();
   const score = useSelector(state => state.question.score);
+  const users = useSelector(state => state.dashboard.users);
   const navigate = useNavigate();
   const { control,
     handleSubmit,
@@ -36,9 +37,19 @@ function FinalScore() {
       email: data.email,
       score
     }
+    const storageUsers = window.sessionStorage.getItem('users');
+    const parsedUsers = JSON.parse(storageUsers || '[]');
+    const sessionUsers = [...(parsedUsers.length === 0 ? users : parsedUsers), user];
+    window.sessionStorage.setItem('users', JSON.stringify(sessionUsers));
+    if(!storageUsers){
+      const sessionUsers = [...users, user];
+      window.sessionStorage.setItem('users', JSON.stringify(sessionUsers));
+    }
     dispatch(setUser(user)); 
     navigate('/leaderboard')
   }
+
+ 
   return (
     <>
       <Typography variant="h2" fontWeight={400} noWrap component='h2' gutterBottom >
